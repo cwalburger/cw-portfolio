@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scratch Page — Clayton Walburger</title>
+  <!-- No Bootstrap on this page (you must hand-code CSS) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="top" class="hero">
+    <h1>Scratch Page</h1>
+    <p>Custom HTML + CSS • Embedded Media • Anchor • Lists • Div Layout</p>
+    <nav class="scratch-nav">
+      <a href="#lists">Lists</a>
+      <a href="#media">Media</a>
+      <a href="#viz">Tableau Viz</a>
+      <a href="#layout">Layout</a>
+      <a href="index.html">← Back to Main Site</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Nested Lists -->
+    <section id="lists" class="card">
+      <h2>Nested Lists</h2>
+      <p>Below is an example of an ordered list containing unordered lists:</p>
+      <ol>
+        <li>Professional Interests
+          <ul>
+            <li>Data Visualization</li>
+            <li>Quantitative Finance</li>
+            <li>Business Strategy</li>
+          </ul>
+        </li>
+        <li>Hobbies
+          <ul>
+            <li>Film Photography</li>
+            <li>Swimming</li>
+            <li>Watch Collecting</li>
+          </ul>
+        </li>
+      </ol>
+      <p><a href="#top">Back to top (on-page anchor)</a></p>
+    </section>
+
+    <!-- Custom Media -->
+    <section id="media" class="card">
+      <h2>Custom Media Section</h2>
+      <p>This section includes both an image and an embedded YouTube video.</p>
+
+      <!-- Non-Bootstrap Image -->
+      <figure>
+        <img src="assets/sample.jpg" alt="Film camera on desk" class="responsive-img"
+          onerror="this.src='https://placehold.co/800x450?text=Your+Custom+Image+Here';">
+        <figcaption>A personal photo example — image loaded from your assets folder.</figcaption>
+      </figure>
+
+      <!-- YouTube Embed -->
+      <div class="video-wrapper">
+        <!-- Replace the src with any YouTube embed link you like -->
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Tableau Embed -->
+    <section id="viz" class="card">
+      <h2>Interactive Tableau Visualization</h2>
+      <p>Below is a live Tableau Public embed. Replace the <code>src</code> with a real Tableau visualization.</p>
+      <div class="tableau-wrapper">
+        <iframe title="Tableau Viz"
+          src="https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:showVizHome=no&:embed=true"
+          width="100%" height="700" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </section>
+
+    <!-- 3 Div Layout Example -->
+    <section id="layout" class="grid-3 card">
+      <div class="panel">
+        <h3>Panel One</h3>
+        <p>Custom-styled div for layout block #1.</p>
+      </div>
+      <div class="panel">
+        <h3>Panel Two</h3>
+        <p>Custom-styled div for layout block #2.</p>
+      </div>
+      <div class="panel">
+        <h3>Panel Three</h3>
+        <p>Custom-styled div for layout block #3.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="scratch-footer">
+    <small>© <span id="year"></span> Clayton Walburger — <a href="#top">Back to Top</a> — <a href="app.html">Mini App</a></small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

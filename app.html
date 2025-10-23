@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini App — Riddle Generator</title>
+  <meta name="description" content="Single-file riddle generator built with AI collaboration." />
+  <style>
+    :root { --bg:#0b132b; --panel:#1c2541; --accent:#5bc0be; --text:#e0fbfc; --muted:#b6e6ea; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial; background: linear-gradient(180deg,#0b132b,#0e1a36); color: var(--text); }
+    header { padding: 2rem 1rem; text-align: center; }
+    header h1 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 2.4vw + 1rem, 2.5rem); }
+    header p { margin: 0; color: var(--muted); }
+    .app { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+    .panel { background: var(--panel); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 1rem; box-shadow: 0 6px 22px rgba(0,0,0,.25); }
+    .controls { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 1rem; }
+    label { font-size: .9rem; color: var(--muted); display: block; margin-bottom: .25rem; }
+    input[type="text"], select { width: 100%; padding: .65rem .8rem; border-radius: 10px; border: 1px solid rgba(255,255,255,.15); background: #0d1733; color: var(--text); }
+    button { cursor: pointer; border: 0; border-radius: 10px; padding: .75rem 1rem; font-weight: 600; transition: transform .05s ease; }
+    button:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); color: #091627; }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,.2); }
+    .stack { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .output { margin-top: 1rem; white-space: pre-wrap; font-size: 1.1rem; }
+    .hint { font-size: 1rem; color: #cce9ec; margin-top: .5rem; }
+    .footer { text-align: center; opacity: .85; margin: 2rem 0 3rem; color: var(--muted); }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:#0d1733; border:1px solid rgba(255,255,255,.15); padding:.1rem .35rem; border-radius:6px; }
+    nav { text-align:center; margin-top:1rem; }
+    nav a { color: var(--muted); text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Riddle Generator</h1>
+    <p>Pick a theme & difficulty, then generate and share fun riddles. Single-file app.</p>
+    <nav><a href="scratch.html">← Back to Scratch Page</a></nav>
+  </header>
+
+  <main class="app">
+    <section class="panel" aria-labelledby="controls-title">
+      <h2 id="controls-title" class="visually-hidden" style="position:absolute;left:-9999px;">Controls</h2>
+      <div class="controls">
+        <div>
+          <label for="theme">Theme</label>
+          <select id="theme" aria-label="Theme">
+            <option>General</option>
+            <option>Science</option>
+            <option>History</option>
+            <option>Movies</option>
+            <option>BYU</option>
+          </select>
+        </div>
+        <div>
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty" aria-label="Difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div>
+          <label for="seed">Optional seed / keyword</label>
+          <input id="seed" type="text" placeholder="e.g., eagle, photon, Zion" aria-label="Seed keyword">
+        </div>
+      </div>
+
+      <div class="stack" role="group" aria-label="Actions">
+        <button class="btn-primary" id="gen">Generate Riddle</button>
+        <button class="btn-ghost" id="toggle" aria-expanded="false">Show / Hide Answer</button>
+        <button class="btn-ghost" id="share">Copy Share Link</button>
+      </div>
+
+      <div class="output" id="riddle" aria-live="polite"></div>
+      <div class="hint" id="answer" style="display:none;"></div>
+    </section>
+
+    <div class="footer">Pro tip: Press <span class="kbd">G</span> to generate.</div>
+  </main>
+
+  <script>
+    // Simple local riddle bank (no network calls)
+    const BANK = {
+      General: [
+        { q: "What has keys but can’t open locks?", a: "A piano." },
+        { q: "What gets wetter the more it dries?", a: "A towel." },
+        { q: "What has many rings but no fingers?", a: "A tree." },
+        { q: "What has a head, a tail, is brown, and has no legs?", a: "A penny." }
+      ],
+      Science: [
+        { q: "I orbit yet stand still in space maps. People find their way by me. What am I?", a: "The North Star (Polaris)." },
+        { q: "I’m mass with no matter, pure push or pull. What am I?", a: "A force." },
+        { q: "I’m the change of speed or direction over time. What am I?", a: "Acceleration." }
+      ],
+      History: [
+        { q: "I’m a document born in 1776 that declared a breakup. What am I?", a: "The Declaration of Independence." },
+        { q: "I’m a wall that fell in 1989, reuniting a city. What am I?", a: "The Berlin Wall." }
+      ],
+      Movies: [
+        { q: "I’m a ring that rules them all, yet I fit on a single finger. What am I?", a: "The One Ring." },
+        { q: "I’m a galaxy far, far away’s energy field. What am I?", a: "The Force." }
+      ],
+      BYU: [
+        { q: "I’m a bell tower that sings to the mountains. What am I?", a: "The BYU Carillon Bell Tower." },
+        { q: "I’m the ‘Y’ you can hike to on a mountain side. What am I?", a: "The Y on Y Mountain." }
+      ]
+    };
+
+    function rnd(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function makeRiddle(theme, difficulty, seed){
+      const pool = (BANK[theme] || BANK.General).slice();
+
+      // Light difficulty tweak: add trickier entries for hard mode
+      if (difficulty === 'hard') {
+        pool.push({ q: "I’m taken before you get me, and given after you have me. What am I?", a: "A photograph." });
+        pool.push({ q: "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", a: "An echo." });
+      } else if (difficulty === 'medium') {
+        pool.push({ q: "What has hands but cannot clap?", a: "A clock." });
+      }
+
+      // Seed-based prompt for variety
+      const s = seed.trim();
+      if (s) {
+        pool.push({ q: `I’m connected with “${s}”, yet I’m not defined by it. What am I?`, a: `A metaphor for ${s}.` });
+      }
+
+      return rnd(pool);
+    }
+
+    // DOM elements
+    const themeEl = document.getElementById('theme');
+    const diffEl  = document.getElementById('difficulty');
+    const seedEl  = document.getElementById('seed');
+    const out     = document.getElementById('riddle');
+    const ans     = document.getElementById('answer');
+    const toggle  = document.getElementById('toggle');
+
+    function render(r){
+      out.textContent = "🧩 " + r.q;
+      ans.textContent = "Answer: " + r.a;
+      ans.style.display = 'none';
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function generate(){
+      const r = makeRiddle(themeEl.value, diffEl.value, seedEl.value || "");
+      render(r);
+      // update URL params so result is shareable
+      const u = new URL(window.location);
+      u.searchParams.set('t', themeEl.value);
+      u.searchParams.set('d', diffEl.value);
+      u.searchParams.set('s', seedEl.value || "");
+      history.replaceState(null, '', u);
+    }
+
+    document.getElementById('gen').addEventListener('click', generate);
+    toggle.addEventListener('click', () => {
+      const show = ans.style.display === 'none';
+      ans.style.display = show ? 'block' : 'none';
+      toggle.setAttribute('aria-expanded', String(show));
+    });
+
+    document.getElementById('share').addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link copied to clipboard!');
+      }, () => {
+        prompt('Copy this link:', window.location.href);
+      });
+    });
+
+    // Keyboard shortcut: G to generate
+    window.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'g') generate();
+    });
+
+    // Load state from URL if present
+    const params = new URLSearchParams(location.search);
+    if (params.has('t')) themeEl.value = params.get('t');
+    if (params.has('d')) diffEl.value = params.get('d');
+    if (params.has('s')) seedEl.value = params.get('s');
+
+    // Initial riddle
+    generate();
+  </script>
+</body>
+</html>

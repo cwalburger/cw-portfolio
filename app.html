@@ -5,79 +5,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mini App — Riddle Generator</title>
   <meta name="description" content="Single-file riddle generator built with AI collaboration." />
+
+  <!-- Bootstrap + Bootswatch Lux (same as other pages) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Shared site styles (navbar overrides, etc.) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- App-specific styles -->
   <style>
     :root { --bg:#0b132b; --panel:#1c2541; --accent:#5bc0be; --text:#e0fbfc; --muted:#b6e6ea; }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial; background: linear-gradient(180deg,#0b132b,#0e1a36); color: var(--text); }
-    header { padding: 2rem 1rem; text-align: center; }
-    header h1 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 2.4vw + 1rem, 2.5rem); }
-    header p { margin: 0; color: var(--muted); }
-    .app { max-width: 900px; margin: 2rem auto; padding: 1rem; }
-    .panel { background: var(--panel); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 1rem; box-shadow: 0 6px 22px rgba(0,0,0,.25); }
-    .controls { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 1rem; }
-    label { font-size: .9rem; color: var(--muted); display: block; margin-bottom: .25rem; }
-    input[type="text"], select { width: 100%; padding: .65rem .8rem; border-radius: 10px; border: 1px solid rgba(255,255,255,.15); background: #0d1733; color: var(--text); }
-    button { cursor: pointer; border: 0; border-radius: 10px; padding: .75rem 1rem; font-weight: 600; transition: transform .05s ease; }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial;
+      background: linear-gradient(180deg,#0b132b,#0e1a36);
+      color: var(--text);
+    }
+    .app-shell {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 2rem 1rem 0;
+    }
+    .app-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .app-header h1 {
+      margin: 0 0 .5rem;
+      font-size: clamp(1.6rem, 2.4vw + 1rem, 2.5rem);
+    }
+    .app-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .app { margin-top: 1.5rem; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,.25);
+    }
+    .controls {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: .9rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: .25rem;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: .65rem .8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: #0d1733;
+      color: var(--text);
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+      border-radius: 10px;
+      padding: .75rem 1rem;
+      font-weight: 600;
+      transition: transform .05s ease;
+    }
     button:active { transform: translateY(1px); }
-    .btn-primary { background: var(--accent); color: #091627; }
-    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid rgba(255,255,255,.2); }
-    .stack { display: flex; gap: .75rem; flex-wrap: wrap; }
-    .output { margin-top: 1rem; white-space: pre-wrap; font-size: 1.1rem; }
-    .hint { font-size: 1rem; color: #cce9ec; margin-top: .5rem; }
-    .footer { text-align: center; opacity: .85; margin: 2rem 0 3rem; color: var(--muted); }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:#0d1733; border:1px solid rgba(255,255,255,.15); padding:.1rem .35rem; border-radius:6px; }
-    nav { text-align:center; margin-top:1rem; }
-    nav a { color: var(--muted); text-decoration: underline; }
+    .btn-primary {
+      background: var(--accent);
+      color: #091627;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .stack {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .output {
+      margin-top: 1rem;
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+    }
+    .hint {
+      font-size: 1rem;
+      color: #cce9ec;
+      margin-top: .5rem;
+    }
+    .footer-note {
+      text-align: center;
+      opacity: .85;
+      margin: 2rem 0 0;
+      color: var(--muted);
+    }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background:#0d1733;
+      border:1px solid rgba(255,255,255,.15);
+      padding:.1rem .35rem;
+      border-radius:6px;
+    }
+    .back-link {
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+    .back-link a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Riddle Generator</h1>
-    <p>Pick a theme & difficulty, then generate and share fun riddles. Single-file app.</p>
-    <nav><a href="scratch.html">← Back to Scratch Page</a></nav>
-  </header>
 
-  <main class="app">
-    <section class="panel" aria-labelledby="controls-title">
-      <h2 id="controls-title" class="visually-hidden" style="position:absolute;left:-9999px;">Controls</h2>
-      <div class="controls">
-        <div>
-          <label for="theme">Theme</label>
-          <select id="theme" aria-label="Theme">
-            <option>General</option>
-            <option>Science</option>
-            <option>History</option>
-            <option>Movies</option>
-            <option>BYU</option>
-          </select>
-        </div>
-        <div>
-          <label for="difficulty">Difficulty</label>
-          <select id="difficulty" aria-label="Difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </div>
-        <div>
-          <label for="seed">Optional seed / keyword</label>
-          <input id="seed" type="text" placeholder="e.g., eagle, photon, Zion" aria-label="Seed keyword">
-        </div>
+  <!-- Shared Bootstrap navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">CW</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
+          <li class="nav-item"><a class="nav-link" href="scratch.html">Scratch</a></li>
+          <li class="nav-item"><a class="nav-link active" href="app.html">Mini App</a></li>
+        </ul>
       </div>
+    </div>
+  </nav>
 
-      <div class="stack" role="group" aria-label="Actions">
-        <button class="btn-primary" id="gen">Generate Riddle</button>
-        <button class="btn-ghost" id="toggle" aria-expanded="false">Show / Hide Answer</button>
-        <button class="btn-ghost" id="share">Copy Share Link</button>
+  <!-- App content -->
+  <main class="app-shell">
+    <header class="app-header">
+      <h1>Riddle Generator</h1>
+      <p>Pick a theme & difficulty, then generate and share fun riddles. Single-file app.</p>
+      <div class="back-link">
+        <a href="scratch.html">← Back to Scratch Page</a>
       </div>
+    </header>
 
-      <div class="output" id="riddle" aria-live="polite"></div>
-      <div class="hint" id="answer" style="display:none;"></div>
+    <section class="app">
+      <section class="panel" aria-labelledby="controls-title">
+        <h2 id="controls-title" class="visually-hidden" style="position:absolute;left:-9999px;">
+          Controls
+        </h2>
+
+        <div class="controls">
+          <div>
+            <label for="theme">Theme</label>
+            <select id="theme" aria-label="Theme">
+              <option>General</option>
+              <option>Science</option>
+              <option>History</option>
+              <option>Movies</option>
+              <option>BYU</option>
+            </select>
+          </div>
+          <div>
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty" aria-label="Difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div>
+            <label for="seed">Optional seed / keyword</label>
+            <input id="seed" type="text" placeholder="e.g., eagle, photon, Zion" aria-label="Seed keyword">
+          </div>
+        </div>
+
+        <div class="stack" role="group" aria-label="Actions">
+          <button class="btn-primary" id="gen">Generate Riddle</button>
+          <button class="btn-ghost" id="toggle" aria-expanded="false">Show / Hide Answer</button>
+          <button class="btn-ghost" id="share">Copy Share Link</button>
+        </div>
+
+        <div class="output" id="riddle" aria-live="polite"></div>
+        <div class="hint" id="answer" style="display:none;"></div>
+      </section>
+
+      <div class="footer-note">
+        Pro tip: Press <span class="kbd">G</span> to generate.
+      </div>
     </section>
-
-    <div class="footer">Pro tip: Press <span class="kbd">G</span> to generate.</div>
   </main>
 
+  <!-- Shared footer (dark bar like other pages) -->
+  <footer class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>© <span id="year"></span> Clayton Walburger</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Riddle app logic -->
   <script>
     // Simple local riddle bank (no network calls)
     const BANK = {
@@ -183,5 +318,8 @@
     // Initial riddle
     generate();
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

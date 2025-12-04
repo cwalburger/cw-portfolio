@@ -1,86 +1,217 @@
-/* ===== Home (index.html) layout to mimic IS 201 example site ===== */
+/* ===== Shared layout for index, résumé, and scratch ===== */
 
-.home-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem 4rem;
+/* Global page base */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background-color: #e5e7eb;   /* light gray behind white panel */
+  color: #111827;
 }
 
-/* Top menu */
-.top-menu {
+/* Top dark header */
+.site-header {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
 }
 
-.top-menu .menu-label {
+.site-brand a {
+  color: #e5e7eb;
+  text-decoration: none;
   font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
-.top-menu ul {
-  list-style: none;
+.site-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 0;
-  margin: 0;
+  gap: 1.5rem;
 }
 
-.top-menu a {
+.site-nav a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-nav a:hover {
   text-decoration: underline;
 }
 
-/* Main content */
-.home-main {
-  text-align: left;
+/* White content panel */
+.page-shell {
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 3px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
-.home-main h1 {
-  margin-bottom: 0.25rem;
-}
-
-.home-main h2 {
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-/* Profile image */
-.home-image {
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
-.home-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.intro-text {
-  margin-bottom: 1.5rem;
-}
-
-/* Sections */
-.home-section {
-  margin: 1.25rem 0;
-}
-
-.home-section h3 a {
+/* Typography utilities */
+.page-shell h1 {
+  margin-top: 0;
+  letter-spacing: 0.08em;
   font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.75rem;
 }
 
-/* Contact list */
-.contact-list {
-  list-style: disc;
-  padding-left: 1.5rem;
+.subtitle {
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
 }
 
-/* Copyright */
-.copyright {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
+.section-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
   color: #6b7280;
 }
 
+.page-shell hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+/* Footer band */
+.site-footer {
+  background-color: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Links (for rubric + consistent look) */
+a:link {
+  color: #2563eb;
+}
+
+a:visited {
+  color: #6b21a8;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Box-model demo */
+.boxExample {
+  border: 2px solid #e5e7eb;
+  padding: 12px;
+  margin: 15px 0;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+/* Media helpers (already used on scratch) */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tableau-wrapper {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+/* Positioning demo */
+#positioning {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+#pos-header {
+  background-color: #f3f4f6;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+#pos-nav {
+  float: left;
+  width: 25%;
+  background-color: #e5e7eb;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+#pos-content {
+  float: left;
+  width: 65%;
+  margin-left: 5%;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+}
+
+/* Overlapping z-index boxes */
+#layered {
+  width: 90px;
+  height: 90px;
+  background-color: #fb7185;  /* soft red */
+  position: absolute;
+  top: 140px;
+  right: 170px;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+#overlay {
+  width: 90px;
+  height: 90px;
+  background-color: #6366f1;  /* indigo */
+  position: absolute;
+  top: 165px;
+  right: 135px;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+}
+
+/* Fixed-position badge */
+#fixedBadge {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 100;
+}

@@ -4,92 +4,93 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scratch Page — Clayton Walburger</title>
-  <!-- No Bootstrap on this page (hand-coded CSS only) -->
+
+  <!-- Bootstrap + Bootswatch Lux -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- Shared header (matches résumé / home) -->
-  <header class="site-header">
-    <div class="site-brand">
-      <a href="index.html">CW</a>
+  <!-- SAME NAVBAR AS resume.html -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">CW</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
+          <li class="nav-item"><a class="nav-link active" href="scratch.html">Scratch</a></li>
+          <li class="nav-item"><a class="nav-link" href="app.html">Mini App</a></li>
+        </ul>
+      </div>
     </div>
-    <nav class="site-nav">
-      <a href="resume.html">Résumé</a>
-      <a href="scratch.html">Scratch</a>
-      <a href="app.html">Mini App</a>
-    </nav>
-  </header>
+  </nav>
 
-  <!-- Main white panel -->
-  <main class="page-shell" id="top">
-    <h1>Scratch Page</h1>
-    <p class="subtitle">
-      Custom HTML and CSS practice: basic elements, links, lists, media embeds,
-      and positioning (float, z-index, fixed).
-    </p>
+  <!-- MAIN CONTENT -->
+  <main class="container py-5">
 
-    <!-- Local sub-nav for quick jumping -->
-    <p>
-      <strong>Sections:</strong>
-      <a href="#practice">HTML Practice</a> ·
-      <a href="#lists-section">Nested Lists</a> ·
-      <a href="#media">Media</a> ·
-      <a href="#viz">Tableau Viz</a> ·
-      <a href="#layout">Div Layout</a> ·
-      <a href="#positioning">Positioning</a>
-    </p>
+    <header class="mb-5">
+      <h1 class="h2">Scratch Page</h1>
+      <p class="text-muted">
+        Custom HTML, CSS fundamentals, lists, anchors, media, Tableau embed, layout, and positioning.
+      </p>
 
-    <hr />
+      <!-- Local navigation inside the page -->
+      <nav class="mb-3">
+        <a href="#lists" class="me-3">Lists</a>
+        <a href="#media" class="me-3">Media</a>
+        <a href="#viz" class="me-3">Tableau Viz</a>
+        <a href="#layout" class="me-3">Layout</a>
+        <a href="#positioning" class="me-3">Positioning</a>
+      </nav>
+    </header>
 
-    <!-- HTML basics -->
-    <section id="practice">
-      <h2 class="section-heading">HTML Practice Section</h2>
+    <!-- HTML PRACTICE SECTION -->
+    <section class="mb-5">
+      <h2 class="h4">HTML Practice Section</h2>
 
-      <!-- br, nesting, child elements, span -->
       <p>
         This is a paragraph with a <strong>nested bold span</strong>.<br>
         Here is a new line created with <code>&lt;br&gt;</code>.<br>
         I can also <span style="background-color: yellow;">highlight just this phrase</span>
-        using an inline <code>&lt;span&gt;</code> with a local style.
+        using an inline <code>&lt;span&gt;</code>.
       </p>
 
-      <!-- img with src, height, width, alt -->
-      <p>
-        <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot">
-      </p>
-
-      <!-- ordered + unordered lists -->
-      <h3>Favorite Movies (Ordered List)</h3>
+      <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot"
+           class="rounded shadow-sm mb-4">
+      
+      <h3 class="h5 mt-4">Favorite Movies (Ordered List)</h3>
       <ol>
         <li>Movie One</li>
         <li>Movie Two</li>
         <li>Movie Three</li>
       </ol>
 
-      <h3>Favorite Snacks (Unordered List)</h3>
+      <h3 class="h5 mt-3">Favorite Snacks (Unordered List)</h3>
       <ul>
         <li>Popcorn</li>
         <li>Chocolate</li>
         <li>Chips</li>
       </ul>
 
-      <!-- regular link + title attribute -->
       <p>
-        Visit my <a href="resume.html" title="View my résumé page">résumé page</a>.
+        Visit my <a href="resume.html">resume page</a>.
       </p>
 
-      <!-- on-page anchor link -->
-      <p><a href="#bottom">Jump to bottom of this page</a></p>
+      <p><a href="#bottom">Jump to bottom</a></p>
     </section>
 
-    <hr />
-
-    <!-- Nested lists section -->
-    <section id="lists-section">
-      <h2 class="section-heading">Nested Lists</h2>
-      <p>Example of an ordered list that contains unordered lists:</p>
+    <!-- Nested Lists -->
+    <section id="lists" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">Nested Lists</h2>
+      <p>An ordered list containing unordered lists:</p>
 
       <ol>
         <li>Professional Interests
@@ -108,143 +109,104 @@
         </li>
       </ol>
 
-      <p><a href="#top">Back to top (on-page anchor)</a></p>
+      <p><a href="#top">Back to top</a></p>
     </section>
 
-    <hr />
+    <!-- Media Section -->
+    <section id="media" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">Custom Media Section</h2>
 
-    <!-- Media -->
-    <section id="media">
-      <h2 class="section-heading">Media</h2>
-      <p>This section includes both an image and an embedded YouTube video.</p>
-
-      <!-- Non-Bootstrap image -->
       <figure>
-        <img
-          src="assets/sample.jpg"
-          alt="Film camera on desk"
-          class="responsive-img"
-          onerror="this.src='https://placehold.co/800x450?text=Your+Custom+Image+Here';"
-        >
-        <figcaption>
-          A personal photo example loaded from the assets folder.
-        </figcaption>
+        <img src="assets/sample.jpg" class="responsive-img rounded shadow-sm mb-2"
+             alt="Film camera on desk"
+             onerror="this.src='https://placehold.co/800x450?text=Add+assets/sample.jpg';">
+        <figcaption class="text-muted">A personal photo example from your assets folder.</figcaption>
       </figure>
 
-      <!-- YouTube embed -->
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+      <div class="video-wrapper mt-3">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="YouTube video"
+                allowfullscreen></iframe>
       </div>
     </section>
 
-    <hr />
-
-    <!-- Tableau viz -->
-    <section id="viz">
-      <h2 class="section-heading">Interactive Tableau Visualization</h2>
-      <p>The live Tableau Public visualization is embedded below:</p>
+    <!-- Tableau Section -->
+    <section id="viz" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">Interactive Tableau Visualization</h2>
+      <p>Replace the <code>src</code> with your actual Tableau embed link.</p>
 
       <div class="tableau-wrapper">
-        <iframe
-          title="Tableau Viz"
-          src="https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:showVizHome=no&:embed=true"
-          width="100%" height="700"
-          frameborder="0"
-          scrolling="no">
-        </iframe>
+        <iframe title="Tableau Viz"
+                src="https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:showVizHome=no&:embed=true"
+                width="100%" height="700"></iframe>
       </div>
     </section>
 
-    <hr />
+    <!-- Layout Section -->
+    <section id="layout" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">3-Div Layout Example</h2>
 
-    <!-- Div layout with box model -->
-    <section id="layout">
-      <h2 class="section-heading">Three-Panel Layout</h2>
-      <p>Each panel below is a <code>div</code> styled using the CSS box model.</p>
+      <div class="grid-3">
+        <div class="panel boxExample">
+          <h3 class="h5">Panel One</h3>
+          <p>Custom-styled div for layout block #1.</p>
+        </div>
 
-      <div class="boxExample">
-        <h3>Panel One</h3>
-        <p>Custom-styled div for layout block #1.</p>
-      </div>
+        <div class="panel boxExample">
+          <h3 class="h5">Panel Two</h3>
+          <p>Custom-styled div for layout block #2.</p>
+        </div>
 
-      <div class="boxExample">
-        <h3>Panel Two</h3>
-        <p>Custom-styled div for layout block #2.</p>
-      </div>
-
-      <div class="boxExample">
-        <h3>Panel Three</h3>
-        <p>Custom-styled div for layout block #3.</p>
+        <div class="panel boxExample">
+          <h3 class="h5">Panel Three</h3>
+          <p>Custom-styled div for layout block #3.</p>
+        </div>
       </div>
     </section>
 
-    <hr />
-
-    <!-- Positioning demo -->
-    <section id="positioning">
-      <h2 class="section-heading">CSS Positioning</h2>
+    <!-- Positioning Demo -->
+    <section id="positioning" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">CSS Positioning Demo</h2>
 
       <div id="pos-header">Positioned Header</div>
 
       <div id="pos-nav">
         <p><strong>Nav (float left)</strong></p>
         <a href="index.html">Home</a><br>
-        <a href="resume.html">Résumé</a><br>
-        <a href="app.html">Mini App</a><br>
+        <a href="resume.html">Resume</a><br>
+        <a href="app.html">App</a><br>
         <a href="scratch.html">Scratch</a>
       </div>
 
       <div id="pos-content">
-        <p>
-          This area demonstrates a simple layout using <code>float</code> for a navigation column
-          and a main content column. The colored squares on the right use
-          <code>position: absolute</code> and <code>z-index</code> to overlap each other.
-        </p>
+        <p>The main content area floats next to the nav to demonstrate layout.</p>
       </div>
 
-      <!-- Overlapping boxes -->
+      <div id="fixedBar">Fixed bar — always visible at the top</div>
+
       <div id="layered"></div>
       <div id="overlay"></div>
     </section>
 
-    <hr />
-
-    <h3 id="bottom">Bottom of the Practice Page</h3>
+    <!-- Bottom anchor -->
+    <h3 id="bottom" class="mt-5">Bottom of the Page</h3>
     <p><a href="#top">Back to top</a></p>
 
-    <!--
-      File-path practice examples (from the textbook):
-
-      1) index.html to movies.html (app.html used as the second page here):
-         <a href="app.html">Go to app page</a>
-
-      2) index.html (in test folder) to resume.html (in homework folder):
-         href="../resume.html"
-
-      3) index.html (in WebFolder) to up.jpg (in images folder):
-         src="images/up.jpg"
-
-      4) index.html (in test folder) to bullet.gif (in menu folder):
-         src="../../images/menu/bullet.gif"
-    -->
   </main>
 
-  <!-- Fixed-position badge for the positioning requirement -->
-  <div id="fixedBadge">Fixed badge (position: fixed)</div>
-
-  <!-- Shared footer -->
-  <footer class="site-footer">
-    <small>© <span id="year"></span> Clayton Walburger</small>
+  <!-- FOOTER (same as résumé) -->
+  <footer class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>© <span id="year"></span> Clayton Walburger</small>
+    </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+

@@ -4,11 +4,11 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  background-color: #e5e7eb;   /* light gray behind white panel */
+  background-color: #e5e7eb;   /* light gray behind content */
   color: #111827;
 }
 
-/* Top dark header */
+/* (Used on résumé page only) Top dark header */
 .site-header {
   background-color: #111827;
   color: #e5e7eb;
@@ -42,7 +42,7 @@ body {
   text-decoration: underline;
 }
 
-/* White content panel */
+/* White content panel (used on résumé page) */
 .page-shell {
   max-width: 900px;
   margin: 2rem auto 3rem;
@@ -82,7 +82,7 @@ body {
   margin: 1.5rem 0;
 }
 
-/* Footer band */
+/* Footer band (used on résumé page) */
 .site-footer {
   background-color: #111827;
   color: #9ca3af;
@@ -114,7 +114,7 @@ a:hover {
   border-radius: 6px;
 }
 
-/* Media helpers (already used on scratch) */
+/* Media helpers (scratch page) */
 .responsive-img {
   max-width: 100%;
   height: auto;
@@ -145,7 +145,7 @@ a:hover {
   margin-top: 1rem;
 }
 
-/* Positioning demo */
+/* Positioning demo (scratch page) */
 #positioning {
   position: relative;
   overflow: hidden;
@@ -215,3 +215,34 @@ a:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   z-index: 100;
 }
+
+/* ===== Bootstrap navbar overrides (for index + scratch) ===== */
+
+.navbar.bg-primary {
+  background-color: #111827 !important;  /* dark gray instead of purple */
+}
+
+.navbar-brand {
+  color: #e5e7eb !important;
+  letter-spacing: 0.12em;
+}
+
+.navbar-brand:hover {
+  color: #f9fafb !important;
+}
+
+.navbar-nav .nav-link {
+  color: #e5e7eb !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fbbf24 !important;  /* soft gold on hover */
+}
+
+.navbar-nav .nav-link.active {
+  color: #fbbf24 !important;  /* soft gold for active page */
+}
+

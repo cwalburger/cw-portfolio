@@ -80,12 +80,24 @@ h1, h2, h3 {
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial; /* (3) font family */
 }
 
+/* Base link style */
 a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+/* ===== Link states (Chapter 22 requirement) ===== */
+a:link {
   color: #0d6efd;
 }
 
+a:visited {
+  color: #6b21a8; /* purple-ish for visited links */
+}
+
 a:hover {
-  text-decoration: none;
+  color: #0b4bbf;
+  text-decoration: underline;
 }
 
 /* 3-Div Layout (Grid Example) */
@@ -124,3 +136,73 @@ figcaption {
 p, li {
   font-size: 1rem;
 }
+
+/* ===== Box Model Example (Chapter 22) ===== */
+.boxExample {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 15px;
+  background-color: #ffffff;
+}
+
+/* ===== Positioning Demo (Chapter 23) ===== */
+
+/* Header bar in positioning section */
+#pos-header {
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Left nav using float */
+#pos-nav {
+  float: left;
+  width: 25%;
+  background-color: #ddd;
+  padding: 10px;
+}
+
+/* Main content floated next to nav */
+#pos-content {
+  float: left;
+  width: 65%;
+  margin-left: 5%;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+/* Fixed bar that stays at top of viewport */
+#fixedBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Overlapping boxes using z-index */
+#layered {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  top: 400px;
+  left: 200px;
+  z-index: 1;
+}
+
+#overlay {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: absolute;
+  top: 430px;
+  left: 230px;
+  z-index: 2;
+}
+

@@ -4,67 +4,93 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scratch Page — Clayton Walburger</title>
-  <!-- No Bootstrap on this page (you must hand-code CSS) -->
+  <!-- No Bootstrap on this page (hand-coded CSS only) -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Header -->
-  <header id="top" class="hero">
-    <h1>Scratch Page</h1>
-    <p>Custom HTML + CSS • Embedded Media • Anchor • Lists • Div Layout</p>
-    <nav class="scratch-nav">
-      <a href="#lists">Lists</a>
-      <a href="#media">Media</a>
-      <a href="#viz">Tableau Viz</a>
-      <a href="#layout">Layout</a>
-      <a href="#positioning">Positioning</a>
-      <a href="index.html">← Back to Main Site</a>
+
+  <!-- Shared header (matches résumé / home) -->
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="index.html">CW</a>
+    </div>
+    <nav class="site-nav">
+      <a href="resume.html">Résumé</a>
+      <a href="scratch.html">Scratch</a>
+      <a href="app.html">Mini App</a>
     </nav>
   </header>
 
-  <h1>HTML Practice Section</h1>
+  <!-- Main white panel -->
+  <main class="page-shell" id="top">
+    <h1>Scratch Page</h1>
+    <p class="subtitle">
+      Custom HTML and CSS practice: basic elements, links, lists, media embeds,
+      and positioning (float, z-index, fixed).
+    </p>
 
-  <!-- br, nesting, child elements -->
-  <p>
-    This is a paragraph with a <strong>nested bold span</strong>.<br>
-    Here is a new line created with <code>&lt;br&gt;</code>.<br>
-    I can also <span style="background-color: yellow;">highlight just this phrase</span>
-    using an inline <code>&lt;span&gt;</code> with local style.
-  </p>
+    <!-- Local sub-nav for quick jumping -->
+    <p>
+      <strong>Sections:</strong>
+      <a href="#practice">HTML Practice</a> ·
+      <a href="#lists-section">Nested Lists</a> ·
+      <a href="#media">Media</a> ·
+      <a href="#viz">Tableau Viz</a> ·
+      <a href="#layout">Div Layout</a> ·
+      <a href="#positioning">Positioning</a>
+    </p>
 
-  <!-- img with src, height, width, alt -->
-  <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot">
+    <hr />
 
-  <!-- ordered + unordered lists -->
-  <h2>Favorite Movies (Ordered List)</h2>
-  <ol>
-      <li>Movie One</li>
-      <li>Movie Two</li>
-      <li>Movie Three</li>
-  </ol>
+    <!-- HTML basics -->
+    <section id="practice">
+      <h2 class="section-heading">HTML Practice Section</h2>
 
-  <h2>Favorite Snacks (Unordered List)</h2>
-  <ul>
-      <li>Popcorn</li>
-      <li>Chocolate</li>
-      <li>Chips</li>
-  </ul>
+      <!-- br, nesting, child elements, span -->
+      <p>
+        This is a paragraph with a <strong>nested bold span</strong>.<br>
+        Here is a new line created with <code>&lt;br&gt;</code>.<br>
+        I can also <span style="background-color: yellow;">highlight just this phrase</span>
+        using an inline <code>&lt;span&gt;</code> with a local style.
+      </p>
 
-  <!-- regular link + title -->
-  <p>
-      Visit my <a href="resume.html" title="View my resume page">resume page</a>.
-  </p>
+      <!-- img with src, height, width, alt -->
+      <p>
+        <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot">
+      </p>
 
-  <!-- on-page anchor links -->
-  <p><a href="#bottom">Jump to bottom of this page</a></p>
+      <!-- ordered + unordered lists -->
+      <h3>Favorite Movies (Ordered List)</h3>
+      <ol>
+        <li>Movie One</li>
+        <li>Movie Two</li>
+        <li>Movie Three</li>
+      </ol>
 
-  <main class="container">
+      <h3>Favorite Snacks (Unordered List)</h3>
+      <ul>
+        <li>Popcorn</li>
+        <li>Chocolate</li>
+        <li>Chips</li>
+      </ul>
 
-    <!-- Nested Lists -->
-    <section id="lists" class="card">
-      <h2>Nested Lists</h2>
-      <p>Below is an example of an ordered list containing unordered lists:</p>
+      <!-- regular link + title attribute -->
+      <p>
+        Visit my <a href="resume.html" title="View my résumé page">résumé page</a>.
+      </p>
+
+      <!-- on-page anchor link -->
+      <p><a href="#bottom">Jump to bottom of this page</a></p>
+    </section>
+
+    <hr />
+
+    <!-- Nested lists section -->
+    <section id="lists-section">
+      <h2 class="section-heading">Nested Lists</h2>
+      <p>Example of an ordered list that contains unordered lists:</p>
+
       <ol>
         <li>Professional Interests
           <ul>
@@ -81,106 +107,140 @@
           </ul>
         </li>
       </ol>
+
       <p><a href="#top">Back to top (on-page anchor)</a></p>
     </section>
 
-    <!-- Custom Media -->
-    <section id="media" class="card">
-      <h2>Custom Media Section</h2>
+    <hr />
+
+    <!-- Media -->
+    <section id="media">
+      <h2 class="section-heading">Media</h2>
       <p>This section includes both an image and an embedded YouTube video.</p>
 
-      <!-- Non-Bootstrap Image -->
+      <!-- Non-Bootstrap image -->
       <figure>
-        <img src="assets/sample.jpg" alt="Film camera on desk" class="responsive-img"
-          onerror="this.src='https://placehold.co/800x450?text=Your+Custom+Image+Here';">
-        <figcaption>A personal photo example — image loaded from your assets folder.</figcaption>
+        <img
+          src="assets/sample.jpg"
+          alt="Film camera on desk"
+          class="responsive-img"
+          onerror="this.src='https://placehold.co/800x450?text=Your+Custom+Image+Here';"
+        >
+        <figcaption>
+          A personal photo example loaded from the assets folder.
+        </figcaption>
       </figure>
 
-      <!-- YouTube Embed -->
+      <!-- YouTube embed -->
       <div class="video-wrapper">
-        <iframe width="560" height="315"
+        <iframe
           src="https://www.youtube.com/embed/dQw4w9WgXcQ"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
-    <!-- Tableau Embed -->
-    <section id="viz" class="card">
-      <h2>Interactive Tableau Visualization</h2>
-      <p>Below is a live Tableau Public embed. Replace the <code>src</code> with a real Tableau visualization.</p>
+    <hr />
+
+    <!-- Tableau viz -->
+    <section id="viz">
+      <h2 class="section-heading">Interactive Tableau Visualization</h2>
+      <p>The live Tableau Public visualization is embedded below:</p>
+
       <div class="tableau-wrapper">
-        <iframe title="Tableau Viz"
+        <iframe
+          title="Tableau Viz"
           src="https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:showVizHome=no&:embed=true"
-          width="100%" height="700" frameborder="0" scrolling="no"></iframe>
+          width="100%" height="700"
+          frameborder="0"
+          scrolling="no">
+        </iframe>
       </div>
     </section>
 
-    <!-- 3 Div Layout Example -->
-    <section id="layout" class="grid-3 card">
-      <div class="panel boxExample">
+    <hr />
+
+    <!-- Div layout with box model -->
+    <section id="layout">
+      <h2 class="section-heading">Three-Panel Layout</h2>
+      <p>Each panel below is a <code>div</code> styled using the CSS box model.</p>
+
+      <div class="boxExample">
         <h3>Panel One</h3>
         <p>Custom-styled div for layout block #1.</p>
       </div>
-      <div class="panel boxExample">
+
+      <div class="boxExample">
         <h3>Panel Two</h3>
         <p>Custom-styled div for layout block #2.</p>
       </div>
-      <div class="panel boxExample">
+
+      <div class="boxExample">
         <h3>Panel Three</h3>
         <p>Custom-styled div for layout block #3.</p>
       </div>
     </section>
 
-    <!-- Positioning Demo -->
-    <section id="positioning" class="card">
-      <h2>CSS Positioning Demo</h2>
+    <hr />
+
+    <!-- Positioning demo -->
+    <section id="positioning">
+      <h2 class="section-heading">CSS Positioning</h2>
 
       <div id="pos-header">Positioned Header</div>
 
       <div id="pos-nav">
         <p><strong>Nav (float left)</strong></p>
         <a href="index.html">Home</a><br>
-        <a href="resume.html">Resume</a><br>
-        <a href="app.html">App</a><br>
+        <a href="resume.html">Résumé</a><br>
+        <a href="app.html">Mini App</a><br>
         <a href="scratch.html">Scratch</a>
       </div>
 
       <div id="pos-content">
-        <p>This is the main content area floated next to the nav to demonstrate horizontal layout.</p>
+        <p>
+          This area demonstrates a simple layout using <code>float</code> for a navigation column
+          and a main content column. The colored squares on the right use
+          <code>position: absolute</code> and <code>z-index</code> to overlap each other.
+        </p>
       </div>
 
-      <div id="fixedBar">Fixed bar — always visible at the top</div>
-
+      <!-- Overlapping boxes -->
       <div id="layered"></div>
       <div id="overlay"></div>
     </section>
 
+    <hr />
+
+    <h3 id="bottom">Bottom of the Practice Page</h3>
+    <p><a href="#top">Back to top</a></p>
+
+    <!--
+      File-path practice examples (from the textbook):
+
+      1) index.html to movies.html (app.html used as the second page here):
+         <a href="app.html">Go to app page</a>
+
+      2) index.html (in test folder) to resume.html (in homework folder):
+         href="../resume.html"
+
+      3) index.html (in WebFolder) to up.jpg (in images folder):
+         src="images/up.jpg"
+
+      4) index.html (in test folder) to bullet.gif (in menu folder):
+         src="../../images/menu/bullet.gif"
+    -->
   </main>
 
-  <h3 id="bottom">Bottom of the Practice Section</h3>
-  <p><a href="#top">Back to top</a></p>
+  <!-- Fixed-position badge for the positioning requirement -->
+  <div id="fixedBadge">Fixed badge (position: fixed)</div>
 
-  <!--
-    File-path practice examples (from the textbook):
-
-    1) index.html to movies.html:
-       <a href="movies.html">Movies Page</a>
-
-    2) index.html (in test folder) to resume.html (in homework folder):
-       href="../resume.html"
-
-    3) index.html (in WebFolder) to up.jpg (in images folder):
-       src="images/up.jpg"
-
-    4) index.html (in test folder) to bullet.gif (in menu folder):
-       src="../../images/menu/bullet.gif"
-  -->
-
-  <footer class="scratch-footer">
-    <small>© <span id="year"></span> Clayton Walburger — <a href="#top">Back to Top</a> — <a href="app.html">Mini App</a></small>
+  <!-- Shared footer -->
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Clayton Walburger</small>
   </footer>
 
   <script>

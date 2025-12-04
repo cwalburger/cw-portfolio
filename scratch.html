@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<!-- Scratch page for practicing HTML & CSS concepts from chapters 21–23 -->
+<body id="top">
 
   <!-- SAME NAVBAR AS resume.html -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,10 +50,11 @@
         <a href="#viz" class="me-3">Tableau Viz</a>
         <a href="#layout" class="me-3">Layout</a>
         <a href="#positioning" class="me-3">Positioning</a>
+        <a href="#paths" class="me-3">File Paths</a>
       </nav>
     </header>
 
-    <!-- HTML PRACTICE SECTION -->
+    <!-- HTML PRACTICE SECTION (br, nesting, img, lists, anchor, on-page links) -->
     <section class="mb-5">
       <h2 class="h4">HTML Practice Section</h2>
 
@@ -60,7 +62,8 @@
         This is a paragraph with a <strong>nested bold span</strong>.<br>
         Here is a new line created with <code>&lt;br&gt;</code>.<br>
         I can also <span style="background-color: yellow;">highlight just this phrase</span>
-        using an inline <code>&lt;span&gt;</code>.
+        using an inline <code>&lt;span&gt;</code>.<br>
+        And here is one more manual line break to demonstrate <code>&lt;br&gt;</code>.
       </p>
 
       <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot"
@@ -124,7 +127,7 @@
       </figure>
 
       <div class="video-wrapper mt-3">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXQ"
                 title="YouTube video"
                 allowfullscreen></iframe>
       </div>
@@ -164,7 +167,7 @@
       </div>
     </section>
 
-    <!-- Positioning Demo -->
+    <!-- Positioning Demo (float, fixed, z-index) -->
     <section id="positioning" class="card p-4 mb-5">
       <h2 class="h4 mb-3">CSS Positioning Demo</h2>
 
@@ -186,6 +189,43 @@
 
       <div id="layered"></div>
       <div id="overlay"></div>
+    </section>
+
+    <!-- File path practice: href/src with relative paths like in Chapter 21 -->
+    <section id="paths" class="card p-4 mb-5">
+      <h2 class="h4 mb-3">File Path Practice</h2>
+      <p class="text-muted">
+        These examples demonstrate relative paths like those shown in the WebDev chapter 21 videos.
+        The targets don’t need to exist; they are here to show correct <code>href</code> and <code>src</code> syntax.
+      </p>
+
+      <!-- index.html to movies.html -->
+      <p>
+        <strong>Same folder (index.html → movies.html):</strong><br>
+        <code>&lt;a href="movies.html"&gt;Movies&lt;/a&gt;</code><br>
+        <a href="movies.html">Movies (dummy link)</a>
+      </p>
+
+      <!-- index.html (in test folder) to resume.html (in homework folder) -->
+      <p>
+        <strong>Up one folder (test/index.html → homework/resume.html):</strong><br>
+        <code>&lt;a href="../resume.html"&gt;Resume&lt;/a&gt;</code><br>
+        <a href="../resume.html">Resume (dummy link using ../)</a>
+      </p>
+
+      <!-- index.html (in WebFolder) to up.jpg (in images folder) -->
+      <p>
+        <strong>Image in subfolder (WebFolder/index.html → images/up.jpg):</strong><br>
+        <code>&lt;img src="images/up.jpg" alt="Up image"&gt;</code><br>
+        <img src="images/up.jpg" alt="Dummy up.jpg example" style="max-width:150px;">
+      </p>
+
+      <!-- index.html (in test folder) to bullet.gif (in menu folder) -->
+      <p>
+        <strong>Two levels up and over (test/index.html → images/menu/bullet.gif):</strong><br>
+        <code>&lt;img src="../../images/menu/bullet.gif" alt="Bullet"&gt;</code><br>
+        <img src="../../images/menu/bullet.gif" alt="Dummy bullet.gif example" style="max-width:80px;">
+      </p>
     </section>
 
     <!-- Bottom anchor -->

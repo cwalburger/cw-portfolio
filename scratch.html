@@ -18,48 +18,46 @@
       <a href="#media">Media</a>
       <a href="#viz">Tableau Viz</a>
       <a href="#layout">Layout</a>
+      <a href="#positioning">Positioning</a>
       <a href="index.html">← Back to Main Site</a>
     </nav>
   </header>
 
   <h1>HTML Practice Section</h1>
 
-<!-- br, nesting, child elements -->
-<p>
+  <!-- br, nesting, child elements -->
+  <p>
     This is a paragraph with a <strong>nested bold span</strong>.<br>
-    Here is a new line created with <code>&lt;br&gt;</code>.
-</p>
+    Here is a new line created with <code>&lt;br&gt;</code>.<br>
+    I can also <span style="background-color: yellow;">highlight just this phrase</span>
+    using an inline <code>&lt;span&gt;</code> with local style.
+  </p>
 
-<!-- img with src, height, width, alt -->
-<img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot">
+  <!-- img with src, height, width, alt -->
+  <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot">
 
-<!-- ordered + unordered lists -->
-<h2>Favorite Movies (Ordered List)</h2>
-<ol>
-    <li>Movie One</li>
-    <li>Movie Two</li>
-    <li>Movie Three</li>
-</ol>
+  <!-- ordered + unordered lists -->
+  <h2>Favorite Movies (Ordered List)</h2>
+  <ol>
+      <li>Movie One</li>
+      <li>Movie Two</li>
+      <li>Movie Three</li>
+  </ol>
 
-<h2>Favorite Snacks (Unordered List)</h2>
-<ul>
-    <li>Popcorn</li>
-    <li>Chocolate</li>
-    <li>Chips</li>
-</ul>
+  <h2>Favorite Snacks (Unordered List)</h2>
+  <ul>
+      <li>Popcorn</li>
+      <li>Chocolate</li>
+      <li>Chips</li>
+  </ul>
 
-<!-- regular link + title -->
-<p>
-    Visit my <a href="resume.html" title="View my resume page">resume page</a>.
-</p>
+  <!-- regular link + title -->
+  <p>
+      Visit my <a href="resume.html" title="View my resume page">resume page</a>.
+  </p>
 
-<!-- on-page anchor links -->
-<p><a href="#bottom">Jump to bottom of this page</a></p>
-
-...
-
-<h3 id="bottom">Bottom of the Practice Section</h3>
-<p><a href="#top">Back to top</a></p>
+  <!-- on-page anchor links -->
+  <p><a href="#bottom">Jump to bottom of this page</a></p>
 
   <main class="container">
 
@@ -100,7 +98,6 @@
 
       <!-- YouTube Embed -->
       <div class="video-wrapper">
-        <!-- Replace the src with any YouTube embed link you like -->
         <iframe width="560" height="315"
           src="https://www.youtube.com/embed/dQw4w9WgXcQ"
           title="YouTube video player"
@@ -123,21 +120,64 @@
 
     <!-- 3 Div Layout Example -->
     <section id="layout" class="grid-3 card">
-      <div class="panel">
+      <div class="panel boxExample">
         <h3>Panel One</h3>
         <p>Custom-styled div for layout block #1.</p>
       </div>
-      <div class="panel">
+      <div class="panel boxExample">
         <h3>Panel Two</h3>
         <p>Custom-styled div for layout block #2.</p>
       </div>
-      <div class="panel">
+      <div class="panel boxExample">
         <h3>Panel Three</h3>
         <p>Custom-styled div for layout block #3.</p>
       </div>
     </section>
 
+    <!-- Positioning Demo -->
+    <section id="positioning" class="card">
+      <h2>CSS Positioning Demo</h2>
+
+      <div id="pos-header">Positioned Header</div>
+
+      <div id="pos-nav">
+        <p><strong>Nav (float left)</strong></p>
+        <a href="index.html">Home</a><br>
+        <a href="resume.html">Resume</a><br>
+        <a href="app.html">App</a><br>
+        <a href="scratch.html">Scratch</a>
+      </div>
+
+      <div id="pos-content">
+        <p>This is the main content area floated next to the nav to demonstrate horizontal layout.</p>
+      </div>
+
+      <div id="fixedBar">Fixed bar — always visible at the top</div>
+
+      <div id="layered"></div>
+      <div id="overlay"></div>
+    </section>
+
   </main>
+
+  <h3 id="bottom">Bottom of the Practice Section</h3>
+  <p><a href="#top">Back to top</a></p>
+
+  <!--
+    File-path practice examples (from the textbook):
+
+    1) index.html to movies.html:
+       <a href="movies.html">Movies Page</a>
+
+    2) index.html (in test folder) to resume.html (in homework folder):
+       href="../resume.html"
+
+    3) index.html (in WebFolder) to up.jpg (in images folder):
+       src="images/up.jpg"
+
+    4) index.html (in test folder) to bullet.gif (in menu folder):
+       src="../../images/menu/bullet.gif"
+  -->
 
   <footer class="scratch-footer">
     <small>© <span id="year"></span> Clayton Walburger — <a href="#top">Back to Top</a> — <a href="app.html">Mini App</a></small>

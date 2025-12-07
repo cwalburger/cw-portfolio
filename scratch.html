@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scratch Page — Clayton Walburger</title>
+  <title>Scratch Page — Watch Collecting</title>
 
   <!-- Bootstrap + Bootswatch Lux -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
 </head>
 
 <!-- Scratch page for practicing HTML & CSS concepts from chapters 21–23 -->
-<body id="top">
+<body id="top" class="watch-scratch-body">
 
   <!-- SAME NAVBAR AS resume.html -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -38,9 +38,10 @@
   <main class="container py-5">
 
     <header class="mb-5">
-      <h1 class="h2">Scratch Page</h1>
+      <h1 class="h2">Scratch Page — Watch Collecting</h1>
       <p class="text-muted">
-        Custom HTML, CSS fundamentals, lists, anchors, media, Tableau embed, layout, and positioning.
+        A hobby page about mechanical watches that also demonstrates core HTML and CSS:
+        lists, anchors, custom media, Tableau embed, layout, and positioning.
       </p>
 
       <!-- Local navigation inside the page -->
@@ -50,64 +51,75 @@
         <a href="#viz" class="me-3">Tableau Viz</a>
         <a href="#layout" class="me-3">Layout</a>
         <a href="#positioning" class="me-3">Positioning</a>
-        <a href="#paths" class="me-3">File Paths</a>
       </nav>
     </header>
 
     <!-- HTML PRACTICE SECTION (br, nesting, img, lists, anchor, on-page links) -->
     <section class="mb-5">
-      <h2 class="h4">HTML Practice Section</h2>
+      <h2 class="h4">Why I Love Watch Collecting</h2>
 
       <p>
-        This is a paragraph with a <strong>nested bold span</strong>.<br>
-        Here is a new line created with <code>&lt;br&gt;</code>.<br>
-        I can also <span style="background-color: yellow;">highlight just this phrase</span>
-        using an inline <code>&lt;span&gt;</code>.<br>
-        And here is one more manual line break to demonstrate <code>&lt;br&gt;</code>.
+        My interest in watches started with a single everyday piece, then grew into a
+        <strong>full-blown fascination with mechanical movements</strong>.<br>
+        Each watch is a tiny machine on the wrist that tracks time, history, and design all at once.<br>
+        I especially enjoy pieces with a clean dial and a <span style="background-color: yellow;">
+        slightly quirky detail, like an unusual bezel or hand shape</span> that makes the watch feel unique.<br>
+        And yes, I still check the time on my phone, but the watch makes it more fun.
       </p>
 
-      <img src="images/profile.jpg" height="200" width="300" alt="Clayton Walburger headshot"
+      <!-- Custom image (not from Bootstrap theme) -->
+      <img src="images/profile.jpg"
+           height="200"
+           width="300"
+           alt="Clayton wearing a watch by the ocean"
            class="rounded shadow-sm mb-4">
-      
-      <h3 class="h5 mt-4">Favorite Movies (Ordered List)</h3>
+
+      <h3 class="h5 mt-4">Top 3 Watches on My Wishlist (Ordered List)</h3>
       <ol>
-        <li>The Truman Show</li>
-        <li>Midnight in Paris</li>
-        <li>Memento</li>
+        <li>Sporty Everyday Watch – versatile steel on bracelet</li>
+        <li>Dress Watch – slim, simple, and clean on leather</li>
+        <li>Diver – 200m+ water resistance with a rotating timing bezel</li>
       </ol>
 
-      <h3 class="h5 mt-3">Favorite Snacks (Unordered List)</h3>
+      <h3 class="h5 mt-3">Strap Materials I Like (Unordered List)</h3>
       <ul>
-        <li>Chex-mix</li>
-        <li>Cheetos</li>
-        <li>Roasted Peanuts</li>
+        <li>Stainless steel bracelets</li>
+        <li>Textured leather straps</li>
+        <li>Durable rubber for swimming</li>
       </ul>
 
       <p>
-        Visit my <a href="resume.html">resume page</a>.
+        Visit my <a href="resume.html">resume page</a> to see how watch collecting fits in with my other interests.
       </p>
 
       <p><a href="#bottom">Jump to bottom</a></p>
     </section>
 
-    <!-- Nested Lists -->
+    <!-- Nested Lists: an ordered list with nested unordered lists about watch categories -->
     <section id="lists" class="card p-4 mb-5">
-      <h2 class="h4 mb-3">Nested Lists</h2>
-      <p>An ordered list containing unordered lists:</p>
+      <h2 class="h4 mb-3">Watch Collecting Roadmap (Nested Lists)</h2>
+      <p>An ordered list of collecting stages, each with an unordered list of focus areas:</p>
 
       <ol>
-        <li>Professional Interests
+        <li>Starter Collection
           <ul>
-            <li>Data Visualization</li>
-            <li>Quantitative Finance</li>
-            <li>Business Strategy</li>
+            <li>One reliable everyday watch</li>
+            <li>A simple digital or smart watch for workouts</li>
+            <li>Learning basic care and storage</li>
           </ul>
         </li>
-        <li>Hobbies
+        <li>Enthusiast Phase
           <ul>
-            <li>Film Photography</li>
-            <li>Swimming</li>
-            <li>Watch Collecting</li>
+            <li>Exploring mechanical movements (automatic and manual wind)</li>
+            <li>Trying different case sizes and strap styles</li>
+            <li>Following watch forums and YouTube reviewers</li>
+          </ul>
+        </li>
+        <li>Collector Phase
+          <ul>
+            <li>Focusing on specific brands or eras</li>
+            <li>Tracking values, service history, and condition</li>
+            <li>Sharing the hobby with friends and family</li>
           </ul>
         </li>
       </ol>
@@ -120,13 +132,17 @@
       <h2 class="h4 mb-3">Custom Media Section</h2>
 
       <figure>
-        <img src="assets/sample.jpg" class="responsive-img rounded shadow-sm mb-2"
-             alt="Film camera on desk"
+        <img src="assets/sample.jpg"
+             class="responsive-img rounded shadow-sm mb-2"
+             alt="Example photo from my gallery"
              onerror="this.src='https://placehold.co/800x450?text=Add+assets/sample.jpg';">
-        <figcaption class="text-muted">A personal photo example from my assets folder.</figcaption>
+        <figcaption class="text-muted">
+          A photo example that could easily be swapped for a wrist shot or watch meetup.
+        </figcaption>
       </figure>
 
       <div class="video-wrapper mt-3">
+        <!-- Embedded YouTube video -->
         <iframe 
             width="560" 
             height="315" 
@@ -142,6 +158,11 @@
     <!-- Tableau Section -->
     <section id="viz" class="card p-4 mb-5">
       <h2 class="h4 mb-3">Interactive Tableau Visualization</h2>
+      <p class="text-muted">
+        This embedded Tableau graph demonstrates that I can place a live visualization on the page.
+        It could be replaced with a watch-market or price-tracking dashboard in the future.
+      </p>
+
       <div class="tableau-wrapper">
         <iframe title="Tableau Viz"
                 src="https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:showVizHome=no&:embed=true"
@@ -155,18 +176,18 @@
 
       <div class="grid-3">
         <div class="panel boxExample">
-          <h3 class="h5">Panel One</h3>
-          <p>Custom-styled div for layout block #1.</p>
+          <h3 class="h5">Everyday Watches</h3>
+          <p>Comfortable, durable pieces that work with almost any outfit.</p>
         </div>
 
         <div class="panel boxExample">
-          <h3 class="h5">Panel Two</h3>
-          <p>Custom-styled div for layout block #2.</p>
+          <h3 class="h5">Dress Watches</h3>
+          <p>Thin, elegant watches that slide under a cuff for formal settings.</p>
         </div>
 
         <div class="panel boxExample">
-          <h3 class="h5">Panel Three</h3>
-          <p>Custom-styled div for layout block #3.</p>
+          <h3 class="h5">Tool & Diver Watches</h3>
+          <p>Higher water resistance, rotating bezels, and bold legibility.</p>
         </div>
       </div>
     </section>
@@ -175,7 +196,7 @@
     <section id="positioning" class="card p-4 mb-5">
       <h2 class="h4 mb-3">CSS Positioning Demo</h2>
 
-      <div id="pos-header">Positioned Header</div>
+      <div id="pos-header">Positioned Header — Watch Navigation</div>
 
       <div id="pos-nav">
         <p><strong>Nav (float left)</strong></p>
@@ -186,7 +207,10 @@
       </div>
 
       <div id="pos-content">
-        <p>The main content area floats next to the nav to demonstrate layout.</p>
+        <p>
+          The main content area floats next to the nav to demonstrate layout.
+          In a real watch site, this could show featured models, specs, or reviews.
+        </p>
       </div>
 
       <div id="fixedBar">Fixed bar — always visible at the top</div>

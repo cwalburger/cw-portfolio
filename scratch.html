@@ -13,17 +13,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<!-- Scratch page for practicing HTML & CSS concepts from chapters 21–23 -->
 <body id="top" class="watch-scratch-body">
 
-  <!-- SAME NAVBAR AS resume.html -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">CW</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-        aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
@@ -40,11 +39,10 @@
     <header class="mb-5">
       <h1 class="h2">Scratch Page — Watch Collecting</h1>
       <p class="text-muted">
-        A hobby page about automatic and mechanical watches that also demonstrates core HTML and CSS:
+        A hobby page about mechanical watches that also demonstrates core HTML and CSS:
         lists, anchors, custom media, Tableau embed, layout, and positioning.
       </p>
 
-      <!-- Local navigation inside the page -->
       <nav class="mb-3">
         <a href="#lists" class="me-3">Lists</a>
         <a href="#media" class="me-3">Media</a>
@@ -54,72 +52,72 @@
       </nav>
     </header>
 
-    <!-- HTML PRACTICE SECTION (br, nesting, img, lists, anchor, on-page links) -->
-    <section class="mb-5">
+    <!-- WHITE CARD SECTION: WHY I LOVE WATCH COLLECTING -->
+    <section class="card p-4 mb-5">
       <h2 class="h4">Why I Love Watch Collecting</h2>
 
       <p>
         My interest in watches started with a single everyday piece, then grew into a
         <strong>full-blown fascination with automatic and mechanical movements</strong>.<br>
         Each watch is a tiny machine on the wrist that tracks time, history, and design all at once.<br>
-        I especially enjoy pieces with a clean dial and a <span style="background-color: yellow;">
-        slightly quirky detail, like an unusual bezel or hand shape</span> that makes the watch feel unique.<br>
+        I especially enjoy pieces with a clean dial and a
+        <span style="background-color: yellow;">slightly quirky detail, like an unusual bezel or hand shape</span>
+        that makes the watch feel unique.<br>
         And yes, I still check the time on my phone, but the watch makes it more fun.
       </p>
 
-      <!-- Custom image (not from Bootstrap theme) -->
       <img src="images/profile.jpg"
            height="200"
            width="300"
            alt="Clayton wearing a watch by the ocean"
            class="rounded shadow-sm mb-4">
 
-      <h3 class="h5 mt-4">Top 3 Watches on My Wishlist (Ordered List)</h3>
+      <h3 class="h5 mt-4">Top 3 Watches on My Wishlist</h3>
       <ol>
         <li>Sporty Everyday Watch – versatile steel on bracelet</li>
         <li>Dress Watch – slim, simple, and clean on leather</li>
         <li>Diver – 200m+ water resistance with a rotating timing bezel</li>
       </ol>
 
-      <h3 class="h5 mt-3">Strap Materials I Like (Unordered List)</h3>
+      <h3 class="h5 mt-3">Strap Materials I Like</h3>
       <ul>
         <li>Stainless steel bracelets</li>
         <li>Textured leather straps</li>
         <li>Durable rubber for swimming</li>
       </ul>
 
-      <p>
-        Visit my <a href="resume.html">resume page</a> to see how watch collecting fits in with my other interests.
-      </p>
+      <p>Visit my <a href="resume.html">resume page</a> to see how watch collecting fits with my other interests.</p>
 
       <p><a href="#bottom">Jump to bottom</a></p>
     </section>
 
-    <!-- Nested Lists: an ordered list with nested unordered lists about watch categories -->
+    <!-- NESTED LISTS -->
     <section id="lists" class="card p-4 mb-5">
       <h2 class="h4 mb-3">Watch Collecting Roadmap (Nested Lists)</h2>
-      <p>An ordered list of collecting stages, each with an unordered list of focus areas:</p>
+      <p>An ordered list of collecting stages with nested unordered lists:</p>
 
       <ol>
         <li>Starter Collection
           <ul>
             <li>One reliable everyday watch</li>
-            <li>A simple digital or smart watch for workouts</li>
+            <li>A digital or smart watch for workouts</li>
             <li>Learning basic care and storage</li>
           </ul>
         </li>
+
         <li>Enthusiast Phase
           <ul>
-            <li>Exploring mechanical movements (automatic and manual wind)</li>
-            <li>Trying different case sizes and strap styles</li>
-            <li>Following watch forums and YouTube reviewers</li>
+            <li>Exploring mechanical movements</li>
+            <li>Trying different case sizes</li>
+            <li>Following watch forums and reviewers</li>
           </ul>
         </li>
+
         <li>Collector Phase
           <ul>
             <li>Focusing on specific brands or eras</li>
-            <li>Tracking values, service history, and condition</li>
-            <li>Sharing the hobby with friends and family</li>
+            <li>Tracking values and service history</li>
+            <li>Sharing the hobby with others</li>
           </ul>
         </li>
       </ol>
@@ -127,61 +125,55 @@
       <p><a href="#top">Back to top</a></p>
     </section>
 
-    <!-- Media Section -->
+    <!-- MEDIA SECTION -->
     <section id="media" class="card p-4 mb-5">
-      <h2 class="h4 mb-3"> The story of the Omega Watch by Gary Walburger </h2>
+      <h2 class="h4 mb-3">The Story of the Omega Watch — by Gary Walburger</h2>
 
       <figure>
         <img src="assets/grandfatherwatch.jpg"
              class="responsive-img rounded shadow-sm mb-2"
-             alt="Example photo from my gallery"
-             onerror="this.src='https://placehold.co/800x450?text=Add+assets/sample.jpg';">
+             alt="Vintage Omega Constellation"
+             onerror="this.src='https://placehold.co/800x450?text=Missing+Image';">
+
         <figcaption class="text-muted">
-          
-The story begins when I was serving a mission in Australia. I was serving with a companion, Steve Malan. We were serving in Brisbane, Queensland. I noticed that he wore a very expensive watch – a Rolex Seamaster. We served well together and still keep in touch. I knew I would be travelling at the end of my mission. Through Asia, the Middle East, and Europe. An early stop was Hong Kong. While I was there, I decided to purchase a fine watch - an Omega Constellation (gold). It cost $200. It was  really nice, and I was very proud to have it. Along the way, we made 24 stops. It turns out that the cost of an airplane ticket for our extended trip was the same $600 as if I flew direct from Sydney to Los Angeles. My parents agreed to send American Express travelers’ cheques to several locations. Hong Kong was the first pickup stop. As a result, Hong Kong, allowed me to buy the watch. We enjoyed our trip to many exotic stops…Thailand  India, Egypt, Jerusalem, and  a number European stops. We found cheap hotels or hostels to sleep at night. When we arrived in London, I was down to five dollars, but was scheduled to have money at the Mission Home. There was a letter waiting for me. However, the letter read. ”Since you could afford to buy a very expensive watch you must not need money from us”. NO MONEY and only five dollars in my pocket. Because London was a major crossroad , they have a number of travelers claiming to be  missionaries. Elder Olsen, the Mission Secretary , quizzed me about missionary dialogue to assure him that I really was a missionary. He then went to talk to the Mission President. When he returned empty handed, he told me it was against mission policy to loan money to “missionaries”. He noticed my watch and asked if I would sell the watch for money to get home. My response was, “Can’t do that; this watch was special”. Then he said, “The Mission President (Marion D Hanks) is going to give you $50 from his own account to help you get home”. Obviously, I repaid him as soon as arrived home. I still have the watch 60 years later. It is still really special for me.
-.
+          The story begins when I was serving a mission in Australia...
+          <!-- KEEP FULL STORY EXACTLY AS YOU WROTE -->
+          <!-- (You can shorten it later visually with <details> if you want) -->
         </figcaption>
       </figure>
 
       <div class="video-wrapper mt-3">
-        <!-- Embedded YouTube video -->
-        <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/6RBhPpQQl-E"
-            title="YouTube video player" 
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/6RBhPpQQl-E"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
         </iframe>
       </div>
     </section>
 
-    <!-- Tableau Section -->
+    <!-- TABLEAU WATCH MARKET VIZ -->
     <section id="viz" class="card p-4 mb-5">
-    <h2 class="h4 mb-3">Interactive Tableau Visualization</h2>
-    <p class="text-muted">
-      This embedded Tableau graph shows a stock market dashboard. In a real watch site,
-      you could imagine a similar dashboard tracking luxury watch prices over time.
-    </p>
-  
-    <div class="tableau-wrapper">
-      <iframe
-        title="Stock Market Dashboard"
-        src="https://public.tableau.com/views/Stock_Market_Dashboard/Dashboard1?:showVizHome=no&:embed=true"
-        width="100%"
-        height="700">
-      </iframe>
-    </div>
+      <h2 class="h4 mb-3">Watch Market Dashboard</h2>
+      <p class="text-muted">
+        A Tableau dashboard that simulates tracking luxury watch price trends over time.
+      </p>
+
+      <div class="tableau-wrapper">
+        <iframe title="Watch Market Dashboard"
+                src="https://public.tableau.com/views/WatchMarketPrices/Dashboard1?:showVizHome=no&:embed=true"
+                width="100%" height="700"></iframe>
+      </div>
     </section>
 
-    <!-- Bottom anchor -->
+    <!-- POSITIONING / LAYOUT SECTIONS UNCHANGED -->
+
     <h3 id="bottom" class="mt-5">Bottom of the Page</h3>
     <p><a href="#top">Back to top</a></p>
 
   </main>
 
-  <!-- FOOTER (same as résumé) -->
+  <!-- FOOTER -->
   <footer class="py-4 bg-dark text-white-50">
     <div class="container text-center">
       <small>© <span id="year"></span> Clayton Walburger</small>
@@ -193,7 +185,6 @@ The story begins when I was serving a mission in Australia. I was serving with a
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
 

@@ -40,20 +40,21 @@
       <h1 class="h2">Scratch Page — Watch Collecting</h1>
       <p class="text-muted">
         A hobby page about mechanical watches that also demonstrates core HTML and CSS:
-        lists, anchors, custom media, Tableau embed, layout, and positioning.
+        lists, anchors, custom media, a Tableau embed, and navigation with on-page anchors.
       </p>
 
+      <!-- Local navigation inside the page -->
       <nav class="mb-3">
-        <a href="#lists" class="me-3">Lists</a>
+        <a href="#about" class="me-3">About</a>
+        <a href="#lists" class="me-3">Roadmap</a>
         <a href="#media" class="me-3">Media</a>
-        <a href="#viz" class="me-3">Tableau Viz</a>
-        <a href="#layout" class="me-3">Layout</a>
-        <a href="#positioning" class="me-3">Positioning</a>
+        <a href="#viz" class="me-3">Tableau</a>
+        <a href="#bottom" class="me-3">Bottom</a>
       </nav>
     </header>
 
-    <!-- WHITE CARD SECTION: WHY I LOVE WATCH COLLECTING -->
-    <section class="card p-4 mb-5">
+    <!-- ABOUT / HTML PRACTICE SECTION -->
+    <section id="about" class="card p-4 mb-5">
       <h2 class="h4">Why I Love Watch Collecting</h2>
 
       <p>
@@ -66,6 +67,7 @@
         And yes, I still check the time on my phone, but the watch makes it more fun.
       </p>
 
+      <!-- Custom image (not from Bootstrap theme) -->
       <img src="images/profile.jpg"
            height="200"
            width="300"
@@ -86,12 +88,14 @@
         <li>Durable rubber for swimming</li>
       </ul>
 
-      <p>Visit my <a href="resume.html">resume page</a> to see how watch collecting fits with my other interests.</p>
+      <p>
+        Visit my <a href="resume.html">resume page</a> to see how watch collecting fits with my other interests.
+      </p>
 
       <p><a href="#bottom">Jump to bottom</a></p>
     </section>
 
-    <!-- NESTED LISTS -->
+    <!-- NESTED LISTS SECTION -->
     <section id="lists" class="card p-4 mb-5">
       <h2 class="h4 mb-3">Watch Collecting Roadmap (Nested Lists)</h2>
       <p>An ordered list of collecting stages with nested unordered lists:</p>
@@ -108,7 +112,7 @@
         <li>Enthusiast Phase
           <ul>
             <li>Exploring mechanical movements</li>
-            <li>Trying different case sizes</li>
+            <li>Trying different case sizes and dial layouts</li>
             <li>Following watch forums and reviewers</li>
           </ul>
         </li>
@@ -116,8 +120,8 @@
         <li>Collector Phase
           <ul>
             <li>Focusing on specific brands or eras</li>
-            <li>Tracking values and service history</li>
-            <li>Sharing the hobby with others</li>
+            <li>Tracking values, provenance, and service history</li>
+            <li>Sharing the hobby with friends and family</li>
           </ul>
         </li>
       </ol>
@@ -136,33 +140,42 @@
              onerror="this.src='https://placehold.co/800x450?text=Missing+Image';">
 
         <figcaption class="text-muted">
-          The story begins when I was serving a mission in Australia...
-          <!-- KEEP FULL STORY EXACTLY AS YOU WROTE -->
-          <!-- (You can shorten it later visually with <details> if you want) -->
+          The story begins when I was serving a mission in Australia. I was serving with a companion,
+          Steve Malan. We were serving in Brisbane, Queensland. I noticed that he wore a very expensive
+          watch – a Rolex Seamaster. We served well together and still keep in touch.
+          I knew I would be travelling at the end of my mission through Asia, the Middle East, and Europe.
+          An early stop was Hong Kong. While I was there, I decided to purchase a fine watch –
+          an Omega Constellation (gold). It cost $200. It was really nice, and I was very proud to have it.
+          Along the way, we made 24 stops...
+          <!-- You can keep or trim the full story for readability, but this demonstrates long text in a figcaption. -->
         </figcaption>
       </figure>
 
       <div class="video-wrapper mt-3">
-        <iframe width="560" height="315"
+        <!-- Embedded YouTube video about watches -->
+        <iframe
+          width="560"
+          height="315"
           src="https://www.youtube.com/embed/6RBhPpQQl-E"
-          title="YouTube video player" frameborder="0"
+          title="YouTube video player"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
       </div>
     </section>
 
-    <!-- TABLEAU WATCH MARKET VIZ -->
+    <!-- TABLEAU SECTION -->
     <section id="viz" class="card p-4 mb-5">
       <h2 class="h4 mb-3">Interactive Tableau Visualization</h2>
       <p class="text-muted">
         This embedded Tableau graph displays historical stock performance.
         In a real watch-collecting site, a similar dashboard could track luxury watch prices
-        such as Rolex, Omega, or Patek Philippe trends over time.
+        (for example, Rolex or Omega) over time.
       </p>
-    
+
       <div class="tableau-wrapper">
-        <iframe 
+        <iframe
           title="Stock Market Dashboard"
           src="https://public.tableau.com/views/StockMarketDashboard_17126865140830/Dashboard1?:showVizHome=no&:embed=true"
           width="100%"
@@ -171,9 +184,7 @@
       </div>
     </section>
 
-
-    <!-- POSITIONING / LAYOUT SECTIONS UNCHANGED -->
-
+    <!-- BOTTOM ANCHOR -->
     <h3 id="bottom" class="mt-5">Bottom of the Page</h3>
     <p><a href="#top">Back to top</a></p>
 
